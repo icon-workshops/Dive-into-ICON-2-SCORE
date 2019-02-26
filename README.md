@@ -21,8 +21,9 @@
 2. IconScoreBase abstract methods
 3. DB abstraction
 4. Decorator, fallback
-5. Type hints, exception handling  
-6. InterfaceScore
+5. Type hints, exception handling
+6. Global functions
+7. InterfaceScore
 
 ### Sample SCORE
 1. ICON Dice roll 
