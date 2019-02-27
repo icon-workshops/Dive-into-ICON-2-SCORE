@@ -5,7 +5,7 @@
 
 > https://www.icondev.io/docs/part-2-hello-world-on-testnet
 
-> ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quick start guide are recommended.**
+> ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quickstart guide are recommended.**
 
 1. install Docker : https://docs.docker.com
 2. Linux (Ubuntu 18.04 recommended) or OS X
