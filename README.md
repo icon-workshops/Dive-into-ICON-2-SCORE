@@ -59,6 +59,7 @@ https://chrome.google.com/webstore/detail/iconex/flpiciilemghbmfalicajoolhkkenfe
 #### 5. Faucet (Testnet)
 http://52.88.70.222
 
-#### 6. Other Community
+#### 6. Other Communities
 Facebook (Dive into ICON) : https://www.facebook.com/groups/DiveintoICON/
+
 Medium (BLOCKCHAIN STUDY GROUP) : https://medium.com/b-ock-chain
