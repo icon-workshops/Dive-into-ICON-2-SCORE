@@ -30,6 +30,7 @@
 5. Type hints, exception handling
 6. Global functions
 7. InterfaceScore
+8. Limitations
 
 ### Sample SCORE
 1. ICON Dice roll 
