@@ -1,6 +1,12 @@
 # Dive-into-ICON-2-SCORE
 
 ## Prerequisite
+> https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment
+
+> https://www.icondev.io/docs/part-2-hello-world-on-testnet
+
+> ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quickstart guide are recommended.**
+
 1. install Docker : https://docs.docker.com
 2. Linux (Ubuntu 18.04 recommended) or OS X
 3. Python 3.6, Python IDE (Pycharm recommended.)
@@ -21,8 +27,10 @@
 2. IconScoreBase abstract methods
 3. DB abstraction
 4. Decorator, fallback
-5. Type hints, exception handling  
-6. InterfaceScore
+5. Type hints, exception handling
+6. Global functions
+7. InterfaceScore
+8. Limitations
 
 ### Sample SCORE
 1. ICON Dice roll 
@@ -57,3 +65,8 @@ https://chrome.google.com/webstore/detail/iconex/flpiciilemghbmfalicajoolhkkenfe
 
 #### 5. Faucet (Testnet)
 http://52.88.70.222
+
+#### 6. Other Communities
+Facebook (Dive into ICON) : https://www.facebook.com/groups/DiveintoICON/
+
+Medium (BLOCKCHAIN STUDY GROUP) : https://medium.com/b-ock-chain
