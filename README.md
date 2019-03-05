@@ -82,3 +82,5 @@ http://52.88.70.222
 Facebook (Dive into ICON) : https://www.facebook.com/groups/DiveintoICON/
 
 Medium (BLOCKCHAIN STUDY GROUP) : https://medium.com/b-ock-chain
+
+Youtube (ICON Developers) : https://www.youtube.com/channel/UC8h4kVV7w94xmfCz6FbwHhg
