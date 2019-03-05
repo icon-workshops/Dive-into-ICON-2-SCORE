@@ -1,9 +1,9 @@
 # Dive-into-ICON-2-SCORE
 
 ## Prerequisite
-> https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment
+> https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_1.md
 
-> https://www.icondev.io/docs/part-2-hello-world-on-testnet
+> https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_2.md
 
 > ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quickstart guide are recommended.**
 
