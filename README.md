@@ -1,33 +1,38 @@
 # Dive-into-ICON-2-SCORE
 
 ## Prerequisite
-Part 1 - local
-> https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment
+### **If you didn't attend the first workshop 'Dive into ICON - Tools', we strongly recommend you to finish the step-by-step quickstart guides below before you attend the second workshop.**
 
-> [https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment_kr](https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_1_kr.md)
+#### Quickstart part 1. Helloworld on local emulated environment
+- [English Guide](https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment)
+- [Korean Guide](/docs/workshop_2_prerequisite_part_1_kr.md)
 
-Part 2 - testnet
-> https://www.icondev.io/docs/part-2-hello-world-on-testnet
+#### Quickstart part 2. Helloworld on testnet
+- [English Guide](https://www.icondev.io/docs/part-2-hello-world-on-testnet)
+- [Korean Guide](/docs/workshop_2_prerequisite_part_2_kr.md)
 
-> [https://www.icondev.io/docs/part-2-hello-world-on-testnet_kr](https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_2_kr.md)
 
-> ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quickstart guide are recommended.**
+For this second workshop, following environments are required. If you have any issues, please join the facebook group, [Dive into ICON](https://www.facebook.com/groups/DiveintoICON) and post your questions there !  
 
-1. install Docker : https://docs.docker.com
-2. Linux (Ubuntu 18.04 recommended) or OS X
-3. Python 3.6, Python IDE (Pycharm recommended.)
-4. T-Bears installation
-5. Python experience, Basic knowledge about ICON dev tools (PythonSDK recommended)
-6. Git (clone this repo)
-7. Create directory for `icon-workshop-score` & Run Docker container (T-Bears container)  
- * ```$ cd ~ && mkdir icon-workshop && cd icon-workshop-score```
- * ```$ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears``` 
+- Linux (Ubuntu 18.04 recommended) or OS X
+- Python 3.6, Python IDE (Pycharm recommended.)
+- Docker installed : https://docs.docker.com
+- T-Bears installed
+- Git required. Please clone this repo. 
+- We expect you have some python experience, and have basic knowledge about ICON development tools.
+- Create a directory `icon-workshop-score` & Run T-Bears docker container  
+```
+$ cd ~ && mkdir icon-workshop && cd icon-workshop-score
+$ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears
+``` 
 
 ## Goal 
 
-**Learn how to develop SCORE by following SCORE Guide and inspecting sample SCORE**
+- **After this workshop, you will get hands-on experience of writing SCORE.**
+- **You will learn the syntax and usage of iconservice APIs.**
+- **We will review the implementation of two example SCOREs.**
 
-### SCORE Guide
+### Workshop Outline
 
 1. Token & Crowdsale
 2. IconScoreBase abstract methods
@@ -45,28 +50,29 @@ Part 2 - testnet
 **\+ Development Resources**
  
  
-## Links
+## Useful Links
 
 #### 1. ICON official Github
 https://github.com/icon-project
 
-* ICON T-Bears Guide  
-https://github.com/icon-project/t-bears
-* ICON icon-rpc-server Guide  
-https://github.com/icon-project/icon-rpc-server
-* ICON SCORE Guide  
-https://icon-project.github.io/score-guide
-
 
 #### 2. ICON Developer portal
 https://icondev.io/
+
+* ICON T-Bears Guide  
+https://icondev.io/docs/development-environment
+* ICON icon-rpc-server Guide  
+https://icondev.io/docs/json-rpc-specification
+* ICON SCORE Guide  
+https://www.icondev.io/docs/overview
+
 
 #### 3. Tracker
 * Mainnet : https://tracker.icon.foundation
 * Testnet : https://bicon.tracker.solidwallet.io
 
 
-#### 4. ICONex (ICON wallet chrome web store)
+#### 4. ICONex (ICON wallet chrome web store for download)
 https://chrome.google.com/webstore/detail/iconex/flpiciilemghbmfalicajoolhkkenfel?hl=ko
 
 #### 5. Faucet (Testnet)
