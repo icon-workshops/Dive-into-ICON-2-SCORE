@@ -21,7 +21,8 @@ For this second workshop, following environments are required. If you have any i
 - Git required. Please clone this repo. 
 - We expect you have some python experience, and have basic knowledge about ICON development tools.
 - Create a directory `icon-workshop-score` & Run T-Bears docker container  
-```$ cd ~ && mkdir icon-workshop && cd icon-workshop-score
+```
+$ cd ~ && mkdir icon-workshop && cd icon-workshop-score
 $ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears
 ``` 
 
