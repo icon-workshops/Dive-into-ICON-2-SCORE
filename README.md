@@ -1,7 +1,7 @@
 # Dive-into-ICON-2-SCORE
 
 ## Prerequisite
-### **If you didn't attend the first workshop 'Dive into ICON - Tools', we strongly recommend you to finish the step-by-step quickstart guides below before you attend the second workshop.**
+**If you didn't attend the first workshop 'Dive into ICON - Tools', we strongly recommend you to finish the step-by-step quickstart guide below before you attend the second workshop. Don't worry, it won't take long.**
 
 #### Quickstart part 1. Helloworld on local emulated environment
 - [English Guide](https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment)
@@ -12,25 +12,24 @@
 - [Korean Guide](/docs/workshop_2_prerequisite_part_2_kr.md)
 
 
-For this second workshop, following environments are required. If you have any issues, please join the facebook group, [Dive into ICON](https://www.facebook.com/groups/DiveintoICON) and post your questions there !  
+For this second workshop, following environments are required. If you have any issues, please join the facebook group, [Dive into ICON](https://www.facebook.com/groups/DiveintoICON) and post your questions there ! We are happy to help you. 
 
 - Linux (Ubuntu 18.04 recommended) or OS X
-- Python 3.6, Python IDE (Pycharm recommended.)
-- Docker installed : https://docs.docker.com
+- Python 3.6 and Python IDE (Pycharm recommended)
+- Docker installed - https://docs.docker.com
 - T-Bears installed
 - Git required. Please clone this repo. 
 - We expect you have some python experience, and have basic knowledge about ICON development tools.
 - Create a directory `icon-workshop-score` & Run T-Bears docker container  
-```
-$ cd ~ && mkdir icon-workshop && cd icon-workshop-score
+```$ cd ~ && mkdir icon-workshop && cd icon-workshop-score
 $ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears
 ``` 
 
-## Goal 
+## Today's Goal 
 
 - **After this workshop, you will get hands-on experience of writing SCORE.**
 - **You will learn the syntax and usage of iconservice APIs.**
-- **We will review the implementation of two example SCOREs.**
+- **We will review the implementation of two sample SCOREs.**
 
 ### Workshop Outline
 
@@ -47,7 +46,6 @@ $ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-worksh
 1. ICON Dice roll 
 2. SampleGame (simple blackjack)
 
-**\+ Development Resources**
  
  
 ## Useful Links
@@ -57,7 +55,7 @@ https://github.com/icon-project
 
 
 #### 2. ICON Developer portal
-https://icondev.io/
+https://icondev.io
 
 * ICON T-Bears Guide  
 https://icondev.io/docs/development-environment
@@ -68,8 +66,9 @@ https://www.icondev.io/docs/overview
 
 
 #### 3. Tracker
-* Mainnet : https://tracker.icon.foundation
-* Testnet : https://bicon.tracker.solidwallet.io
+Mainnet : https://tracker.icon.foundation
+
+Testnet : https://bicon.tracker.solidwallet.io
 
 
 #### 4. ICONex (ICON wallet chrome web store for download)
