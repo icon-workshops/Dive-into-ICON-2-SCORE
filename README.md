@@ -4,12 +4,12 @@
 Part 1 - local
 > https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment
 
-> https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_1_kr.md
+> [https://www.icondev.io/docs/part-1-helloworld-on-local-emulated-environment_kr](https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_1_kr.md)
 
 Part 2 - testnet
 > https://www.icondev.io/docs/part-2-hello-world-on-testnet
 
-> https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_2_kr.md
+> [https://www.icondev.io/docs/part-2-hello-world-on-testnet_kr](https://github.com/icon-workshops/Dive-into-ICON-2-SCORE/blob/master/docs/workshop_2_prerequisite_part_2_kr.md)
 
 > ### **If you didn't attend to the workshop 'Dive into ICON - Tools' before, then this two quickstart guide are recommended.**
 
