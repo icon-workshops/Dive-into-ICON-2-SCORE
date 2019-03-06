@@ -8,8 +8,11 @@ ICON 크롬 지갑을 설치 시 기본적으로 메인넷에 연결되어 있�
 
 * `F12` 를 눌러 크롬 개발자도구를 열고, `Application` 탭으로 이동합니다. 
 * `Storage` 의 `Local Storage` 에 기존 데이터를 덮어쓰지 않고, 새로운 `key/value` 를 추가합니다. **(isDev/true)**
+
 ![ICONex_테스트넷_연결](./images/ICONex_testnet_connection.png)
+
 * key/value 추가 후 지갑을 새로고침하면, 브라우저 화면 하단에 네트워크 선택창이 생성된 것을 확인할 수 있습니다. 생성된 선택창을 통해 메인넷에서 DApp 개발자를 위해 제공되는 YEOUIDO 테스트넷으로 설정을 변경합니다.
+
 ![ICONex_테스트넷_연결](./images/ICONex_testnet_connection_2.png)
 
 ---
