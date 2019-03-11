@@ -26,11 +26,11 @@ class Chip(IconScoreBase):
     def Burn(self, _from: Address, _value: int):
         pass
 
-    def on_install(self, decimals: int = 8) -> None:
+    def on_install(self, _decimals: int = 8) -> None:
         super().on_install()
 
         self._total_supply.set(0)
-        self._decimals.set(decimals)
+        self._decimals.set(_decimals)
 
     def on_update(self) -> None:
         super().on_update()
@@ -79,31 +79,30 @@ class Chip(IconScoreBase):
         return self._balances[_owner]
 
     @external
-    def mint(self, amount: int):
+    def mint(self, _amount: int):
         """
         This method should be invoked by CA not EOA.
 
-        :param amount: the amount of Chips to mint
+        :param _amount: the amount of Chips to mint
         """
         if not self.msg.sender.is_contract:
             revert("This method should be invoked by CA not EOA")
 
-        self._balances[self.tx.origin] = self._balances[self.tx.origin] + amount * (10 ** self._decimals.get())
-        self._total_supply.set(self._total_supply.get() + amount * (10 ** self._decimals.get()))
+        self._balances[self.tx.origin] = self._balances[self.tx.origin] + _amount * (10 ** self._decimals.get())
 
     @external
-    def burn(self, amount: int):
+    def burn(self, _amount: int):
         """
         This method should be invoked by CA not EOA.
 
-        :param amount: the equivalent icx amount to Chips to burn
+        :param _amount: the equivalent icx amount to Chips to burn
         """
         if not self.msg.sender.is_contract:
             revert("This method should be invoked by CA not EOA")
 
-        if self._balances[self.tx.origin] > amount:
-            self._burn(self.tx.origin, amount * (10 ** self._decimals.get()))
-            self.Burn(self.tx.origin, amount * (10 ** self._decimals.get()))
+        if self._balances[self.tx.origin] > _amount:
+            self._burn(self.tx.origin, _amount * (10 ** self._decimals.get()))
+            self.Burn(self.tx.origin, _amount * (10 ** self._decimals.get()))
         else:
             revert(f"You don't have enough chips to burn. Your balance: {self._balances[self.tx.origin]}")
 
@@ -125,7 +124,6 @@ class Chip(IconScoreBase):
 
     def _burn(self, address: Address, amount: int):
         self._balances[address] = self._balances[address] - amount
-        self._total_supply.set(self._total_supply.get() - amount)
 
     @external
     def bet(self, _from: Address, _to: Address, _value: int):

@@ -3,22 +3,22 @@ from iconservice import *
 
 class GameRoom:
 
-    def __init__(self, _owner: Address, _game_room_id: Address, _creation_time: int, _prize_per_game: int, _participants: list = None, _active: bool = False):
-        self.owner = _owner
-        self.game_room_id = _game_room_id
-        self.creation_time = _creation_time
-        self.prize_per_game = _prize_per_game
-        if _participants is None:
+    def __init__(self, owner: Address, game_room_id: Address, creation_time: int, prize_per_game: int, participants: list = None, active: bool = False):
+        self.owner = owner
+        self.game_room_id = game_room_id
+        self.creation_time = creation_time
+        self.prize_per_game = prize_per_game
+        if participants is None:
             self.participants = []
         else:
-            self.participants = _participants
-        self.active = _active
+            self.participants = participants
+        self.active = active
 
-    def join(self, _participant: Address):
-        self.participants.append(str(_participant))
+    def join(self, participant: Address):
+        self.participants.append(str(participant))
 
-    def escape(self, _participant_to_escape: Address):
-        self.participants.remove(str(_participant_to_escape))
+    def escape(self, participant_to_escape: Address):
+        self.participants.remove(str(participant_to_escape))
 
     def game_start(self):
         self.active = True
