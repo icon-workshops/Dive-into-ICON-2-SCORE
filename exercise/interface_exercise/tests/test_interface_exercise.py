@@ -82,6 +82,40 @@ class TestInterfaceExercise(IconIntegrateTestBase):
         self.assertEqual("SCORE_NAME : The First SCORE", response_list[0])
         self.assertEqual("INTRODUCTION : The SCORE example for second workshop", response_list[1])
 
+    def test_get_interface_score_address(self):
+        call = CallBuilder().from_(self._test1.get_address()) \
+            .to(self._score_address) \
+            .method("getInterfaceScoreAddress") \
+            .build()
+
+        # Sends the call request
+        response = self.process_call(call, self.icon_service)
+        self.assertEqual(self._workshop_score, response)
+
+    def test_set_interface_score_address(self):
+        new_address = self._wallet_array[0].get_address()
+        params = {"_scoreAddress": new_address}
+        transaction = CallTransactionBuilder() \
+            .method("setScoreAddress") \
+            .params(params) \
+            .step_limit(10000000000) \
+            .to(self._score_address) \
+            .build()
+
+        signed_transaction = SignedTransaction(transaction, self._test1)
+        tx_result = self.process_transaction(signed_transaction)
+        self.assertEqual(1, tx_result['status'])
+
+        call = CallBuilder().from_(self._test1.get_address()) \
+            .to(self._score_address) \
+            .method("getInterfaceScoreAddress") \
+            .build()
+
+        # Sends the call request
+        response = self.process_call(call, self.icon_service)
+        self.assertEqual(new_address, response)
+
+
     def test_time_recording(self):
         call = CallBuilder().from_(self._test1.get_address()) \
             .to(self._score_address) \

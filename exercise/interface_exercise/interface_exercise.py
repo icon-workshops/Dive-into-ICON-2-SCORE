@@ -39,6 +39,11 @@ class InterfaceExercise(IconScoreBase):
         pass
 
     @property
+    def interface_score_address(self):
+        return self.score_address.get()
+
+
+    @property
     def time_recording(self):
         return ArrayDB("TIME_RECORDING", self._db, value_type=int)
 
@@ -51,7 +56,7 @@ class InterfaceExercise(IconScoreBase):
 
     @external(readonly=True)
     def interfaceScoreExercise(self) -> str:
-        workshop_score = self.create_interface_score(self.score_address.get(), WorkshopInterface)
+        workshop_score = self.create_interface_score(self.interface_score_address, WorkshopInterface)
         result = workshop_score.hello()
         return result
 
@@ -63,6 +68,14 @@ class InterfaceExercise(IconScoreBase):
     def getTimeRecording(self) -> str:
         time_recorded = [time_recorded for time_recorded in self.time_recording]
         return str(time_recorded)
+
+    @external(readonly=True)
+    def getInterfaceScoreAddress(self) -> Address:
+        return self.interface_score_address
+
+    @external
+    def setScoreAddress(self, _scoreAddress: Address):
+        self.score_address.set(_scoreAddress)
 
     @external
     def modifyScoreStatus(self, _scoreName: str, _introduction: str):
