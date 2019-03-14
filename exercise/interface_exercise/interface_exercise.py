@@ -25,7 +25,6 @@ class InterfaceExercise(IconScoreBase):
 
         self.status['SCORE_NAME'] = "The First SCORE"
         self.status['INTRODUCTION'] = "The SCORE example for second workshop"
-        self.status['APIS'] = str(self.get_api())
 
     def on_update(self) -> None:
         super().on_update()
@@ -82,7 +81,6 @@ class InterfaceExercise(IconScoreBase):
         self.ModifyScoreStatus(_scoreName, _introduction)
         self.status["SCORE_NAME"] = _scoreName
         self.status["INTRODUCTION"] = _introduction
-        self.status["APIS"] = str(self.get_api())
         self.put_time_recording()
 
     def put_time_recording(self):
