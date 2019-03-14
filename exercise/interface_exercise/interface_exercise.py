@@ -31,11 +31,11 @@ class InterfaceExercise(IconScoreBase):
         super().on_update()
 
     @eventlog(indexed=2)
-    def ModifyScoreStatus(self, _scoreName, _introduction):
+    def ModifyScoreStatus(self, _scoreName: str, _introduction: str):
         pass
 
     @eventlog
-    def IcxReceived(self, _from, _amount):
+    def IcxReceived(self, _from: Address, _amount: int):
         pass
 
     @property
@@ -66,7 +66,7 @@ class InterfaceExercise(IconScoreBase):
 
     @external
     def modifyScoreStatus(self, _scoreName: str, _introduction: str):
-        self.ModifyScoreStatus()
+        self.ModifyScoreStatus(_scoreName, _introduction)
         self.status["SCORE_NAME"] = _scoreName
         self.status["INTRODUCTION"] = _introduction
         self.status["APIS"] = str(self.get_api())

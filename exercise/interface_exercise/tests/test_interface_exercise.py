@@ -1,7 +1,7 @@
 import os
 
 from iconsdk.builder.call_builder import CallBuilder
-from iconsdk.builder.transaction_builder import DeployTransactionBuilder, CallTransactionBuilder
+from iconsdk.builder.transaction_builder import DeployTransactionBuilder, CallTransactionBuilder, TransactionBuilder
 from iconsdk.libs.in_memory_zip import gen_deploy_data_content
 from iconsdk.signed_transaction import SignedTransaction
 from tbears.libs.icon_integrate_test import IconIntegrateTestBase, SCORE_INSTALL_ADDRESS
@@ -18,17 +18,13 @@ class TestInterfaceExercise(IconIntegrateTestBase):
         super().setUp()
 
         self.icon_service = None
-        # if you want to send request to network, uncomment next line and set self.TEST_HTTP_ENDPOINT_URI_V3
-        # self.icon_service = IconService(HTTPProvider(self.TEST_HTTP_ENDPOINT_URI_V3))
-
-        # install SCORE
 
         self._workshop_score = self._deploy_score(self.WORKSHOP_PROJECT)['scoreAddress']
         params = {"_scoreAddress": self._workshop_score}
         self._score_address = self._deploy_score(project=self.SCORE_PROJECT, params=params)['scoreAddress']
 
     def tearDown(self):
-        print("-"*180)
+        print("-" * 180)
 
     def _deploy_score(self, project, params: dict = None, to: str = SCORE_INSTALL_ADDRESS) -> dict:
         # Generates an instance of transaction for deploying SCORE.
@@ -58,9 +54,9 @@ class TestInterfaceExercise(IconIntegrateTestBase):
     def test_score_update(self):
         # update SCORE
         tx_result = self._deploy_score(project=self.SCORE_PROJECT, to=self._score_address)
-        print("Update")
 
         self.assertEqual(self._score_address, tx_result['scoreAddress'])
+        self.assertEqual(1, tx_result['status'])
 
     def test_call_hello(self):
         # Generates a call instance using the CallBuilder
@@ -71,7 +67,6 @@ class TestInterfaceExercise(IconIntegrateTestBase):
 
         # Sends the call request
         response = self.process_call(call, self.icon_service)
-        print(response)
 
         self.assertEqual("Hello", response)
 
@@ -83,7 +78,9 @@ class TestInterfaceExercise(IconIntegrateTestBase):
 
         # Sends the call request
         response = self.process_call(call, self.icon_service)
-        print(response)
+        response_list = response.split("\n")
+        self.assertEqual("SCORE_NAME : The First SCORE", response_list[0])
+        self.assertEqual("INTRODUCTION : The SCORE example for second workshop", response_list[1])
 
     def test_time_recording(self):
         call = CallBuilder().from_(self._test1.get_address()) \
@@ -106,7 +103,33 @@ class TestInterfaceExercise(IconIntegrateTestBase):
             .build()
 
         signed_transaction = SignedTransaction(transaction, self._test1)
-        self.process_transaction(signed_transaction)
+        tx_result = self.process_transaction(signed_transaction)
+        self.assertEqual(1, tx_result['status'])
+        print(tx_result['eventLogs'])
 
-        self.test_get_status()
+        call = CallBuilder().from_(self._test1.get_address()) \
+            .to(self._score_address) \
+            .method("getScoreStatus") \
+            .build()
+
+        # Sends the call request
+        response = self.process_call(call, self.icon_service)
+        response_list = response.split("\n")
+        self.assertEqual("SCORE_NAME : Modified SCORE Name", response_list[0])
+        self.assertEqual("INTRODUCTION : Modified Introduction", response_list[1])
+
         self.test_time_recording()
+
+    def test_fallback(self):
+        transaction = TransactionBuilder() \
+            .to(self._score_address) \
+            .value(1000000000) \
+            .nid(3) \
+            .step_limit(1000000000) \
+            .build()
+
+        signed_transaction = SignedTransaction(transaction, self._test1)
+        tx_result = self.process_transaction(signed_transaction, self.icon_service)
+
+        self.assertEqual(1, tx_result['status'])
+        print(tx_result['eventLogs'])
