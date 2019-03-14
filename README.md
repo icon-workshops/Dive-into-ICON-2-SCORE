@@ -44,8 +44,8 @@ $ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-worksh
 8. Limitations
 
 ### Sample SCORE
-1. ICON Dice roll 
-2. SampleGame (simple blackjack)
+1. Coin Flip 
+2. Simple Blackjack
 
  
  
