@@ -67,7 +67,7 @@ class SampleGame(IconScoreBase):
         else:
             revert("Input params must be Contract Address")
 
-    def on_update(self, **kwargs) -> None:
+    def on_update(self) -> None:
         super().on_update()
         pass
 
@@ -95,11 +95,6 @@ class SampleGame(IconScoreBase):
         chip.bet(bet_from, self.address, amount)
 
     @external(readonly=True)
-    def balanceOf(self) -> int:
-        chip = self.create_interface_score(self._VDB_token_address.get(), ChipInterface)
-        return chip.balanceOf(self.msg.sender)
-
-    @external(readonly=True)
     def showGameRoomList(self) -> list:
         response = []
         game_room_list = self.game_room_list
@@ -114,6 +109,24 @@ class SampleGame(IconScoreBase):
             response.append(f"{game_room_id} : ({len(participants)} / 2). The room {room_has_vacant_seat}. Prize : {prize_per_game}. Creation time : {creation_time}")
 
         return response
+
+    @external(readonly=True)
+    def getGameRoomStatus(self, _gameroomId: Address) -> dict:
+        gameroom_dict = json_loads(self._DDB_game_room[_gameroomId])
+        active = "active" if gameroom_dict["active"] else "inactive"
+
+        participants = gameroom_dict["participants"]
+        user_ready_status = [participant + " : " + str(self._DDB_ready[Address.from_string(participant)]) for participant in participants]
+
+        response = {
+            "status": active,
+            "user_ready_status": user_ready_status
+        }
+        return response
+
+    @external(readonly=True)
+    def getUserStatus(self, _userId: Address) -> Address:
+        return self._DDB_in_game_room[_userId]
 
     @external
     def createRoom(self, _prizePerGame: int = 10):
@@ -242,9 +255,6 @@ class SampleGame(IconScoreBase):
         self._DDB_in_game_room.remove(self.msg.sender)
 
     def _ban(self, game_room_id: Address, participant_to_ban: Address):
-        # 방장인 경우 참여인원 모두 나가고 게임방 삭제
-        # 게임 룸 정보에서 삭제
-        # 게임룸 리스트에 변경사항 반영
         game_room_dict = json_loads(self._DDB_game_room[game_room_id])
         game_room = GameRoom(Address.from_string(game_room_dict['owner']), Address.from_string(game_room_dict['game_room_id']), game_room_dict['creation_time'],
                              game_room_dict['prize_per_game'], game_room_dict['participants'], game_room_dict['active'])
@@ -268,9 +278,9 @@ class SampleGame(IconScoreBase):
                 pass
 
     @external(readonly=True)
-    def getChipBalance(self) -> int:
+    def getChipBalance(self, _from: Address) -> int:
         chip = self.create_interface_score(self._VDB_token_address.get(), ChipInterface)
-        return chip.balanceOf(self.msg.sender)
+        return chip.balanceOf(_from)
 
     @external
     def toggleReady(self):
@@ -318,8 +328,8 @@ class SampleGame(IconScoreBase):
             self._DDB_ready[Address.from_string(participant)] = False
 
     @external(readonly=True)
-    def showMine(self) -> str:
-        hand = self._DDB_hand[self.msg.sender]
+    def showMine(self, _from: Address) -> str:
+        hand = self._DDB_hand[_from]
         return hand
 
     @external
@@ -385,7 +395,6 @@ class SampleGame(IconScoreBase):
 
         if self._check_participants_fix(game_room_id) or self.block.height - self._DDB_game_start_time[game_room_id] > 60:
             self.calculate(game_room_id)
-            self.Calculate(game_room_id)
 
     def calculate(self, game_room_id: Address = None):
         self.Calculate(game_room_id)
