@@ -8,7 +8,7 @@
 * T-Bears 설치하기
 
 ```bash
-$ docker run -it --name local-tbears -p 9000:9000 iconloop/tbears
+$ docker run -it --name local-tbears -p 9000:9000 iconloop/tbears:mainnet
 * Starting RabbitMQ Messaging Server rabbitmq-server                    [ OK ]
 Made tbears_cli_config.json, tbears_server_config.json, keystore_test1 successfully
 Started tbears service successfully
