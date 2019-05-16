@@ -23,7 +23,7 @@ For this second workshop, following environments are required. If you have any i
 - Create a directory `icon-workshop-score` & Run T-Bears docker container  
 ```
 $ cd ~ && mkdir icon-workshop && cd icon-workshop-score
-$ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears:1.1.0.1
+$ docker run -it -p 9000:9000 -v ${PWD}:/tbears/icon-workshop --name icon-workshop-score iconloop/tbears:mainnet
 ``` 
 
 ## Today's Goal 
